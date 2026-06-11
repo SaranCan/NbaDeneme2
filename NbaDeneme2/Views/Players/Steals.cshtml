@@ -1,0 +1,32 @@
+﻿@model IEnumerable<NbaDeneme2.Models.VwTopStealerSpg>
+
+@{
+    ViewData["Title"] = "Top Stealers";
+}
+
+<h2 class="mb-4">🦅 Top 10 Stealers</h2>
+
+<table class="table table-dark table-striped table-hover">
+    <thead>
+        <tr>
+            <th>Rank</th>
+            <th>Player</th>
+            <th>Team</th>
+            <th>SPG</th>
+        </tr>
+    </thead>
+    <tbody>
+        @{ int rank = 1;
+           foreach (var player in Model)
+           {
+            <tr>
+                <td>@rank</td>
+                <td>@player.PlayerName</td>
+                <td>@player.TeamName</td>
+                <td>@player.Spg</td>
+            </tr>
+            rank++;
+           }
+        }
+    </tbody>
+</table>

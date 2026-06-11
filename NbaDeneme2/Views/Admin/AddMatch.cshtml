@@ -1,0 +1,49 @@
+﻿@{
+    ViewData["Title"] = "Add Match";
+}
+
+<h2 class="mb-4">➕ Add New Match</h2>
+
+<a href="/Admin" class="btn btn-secondary mb-3">← Back to Admin Panel</a>
+
+<div class="card bg-dark text-white" style="max-width: 600px;">
+    <div class="card-body">
+        <form method="post">
+            <div class="mb-3">
+                <label class="form-label">Home Team</label>
+                <select name="homeTeamId" class="form-select" required>
+                    <option value="">-- Select Home Team --</option>
+                    @foreach (var team in ViewBag.Teams)
+                    {
+                        <option value="@team.TeamId">@team.TeamName</option>
+                    }
+                </select>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Away Team</label>
+                <select name="awayTeamId" class="form-select" required>
+                    <option value="">-- Select Away Team --</option>
+                    @foreach (var team in ViewBag.Teams)
+                    {
+                        <option value="@team.TeamId">@team.TeamName</option>
+                    }
+                </select>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Match Date</label>
+                <input type="date" name="matchDate" class="form-control" required />
+            </div>
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <label class="form-label">Home Score</label>
+                    <input type="number" name="homeScore" class="form-control" min="0" required />
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label class="form-label">Away Score</label>
+                    <input type="number" name="awayScore" class="form-control" min="0" required />
+                </div>
+            </div>
+            <button type="submit" class="btn btn-success w-100">Add Match</button>
+        </form>
+    </div>
+</div>

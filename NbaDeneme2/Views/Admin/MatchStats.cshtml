@@ -1,0 +1,48 @@
+﻿@model IEnumerable<NbaDeneme2.Models.PlayerGameStat>
+
+@{
+    ViewData["Title"] = "Match Stats";
+}
+
+<h2 class="mb-2">📊 Match Stats</h2>
+<p class="text-muted mb-1">@ViewBag.MatchDate — @ViewBag.HomeTeam @ViewBag.HomeScore - @ViewBag.AwayScore @ViewBag.AwayTeam</p>
+
+<a href="/Admin" class="btn btn-secondary mb-3">← Back to Admin Panel</a>
+
+@if (TempData["Success"] != null)
+{
+    <div class="alert alert-success">@TempData["Success"]</div>
+}
+
+<form method="post">
+    <input type="hidden" name="matchId" value="@ViewBag.MatchId" />
+    <table class="table table-dark table-striped table-hover">
+        <thead>
+            <tr>
+                <th>Player</th>
+                <th>PTS</th>
+                <th>AST</th>
+                <th>REB</th>
+                <th>STL</th>
+                <th>BLK</th>
+                <th>MIN</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var stat in Model)
+            {
+                <input type="hidden" name="statsIds" value="@stat.StatsId" />
+                <tr>
+                    <td>@stat.Person?.Person?.FirstName @stat.Person?.Person?.LastName</td>
+                    <td><input type="number" name="points" value="@stat.Points" class="form-control form-control-sm" style="width:70px" min="0" /></td>
+                    <td><input type="number" name="asists" value="@stat.Asists" class="form-control form-control-sm" style="width:70px" min="0" /></td>
+                    <td><input type="number" name="rebounds" value="@stat.Rebounds" class="form-control form-control-sm" style="width:70px" min="0" /></td>
+                    <td><input type="number" name="steals" value="@stat.Steals" class="form-control form-control-sm" style="width:70px" min="0" /></td>
+                    <td><input type="number" name="blocks" value="@stat.Blocks" class="form-control form-control-sm" style="width:70px" min="0" /></td>
+                    <td><input type="number" name="minutes" value="@stat.MinutesPlayed" class="form-control form-control-sm" style="width:70px" min="0" /></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <button type="submit" class="btn btn-success">💾 Save All Stats</button>
+</form>

@@ -1,0 +1,38 @@
+﻿@model NbaDeneme2.Models.Match
+
+@{
+    ViewData["Title"] = "Edit Match";
+}
+
+<h2 class="mb-4">✏️ Edit Match Score</h2>
+
+<a href="/Admin" class="btn btn-secondary mb-3">← Back to Admin Panel</a>
+
+<div class="card bg-dark text-white" style="max-width: 600px;">
+    <div class="card-body">
+        <form method="post">
+            <input type="hidden" name="matchId" value="@Model.MatchId" />
+            <div class="mb-3">
+                <label class="form-label">Home Team</label>
+                <input type="text" class="form-control" value="@ViewBag.HomeTeamName" disabled />
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Away Team</label>
+                <input type="text" class="form-control" value="@ViewBag.AwayTeamName" disabled />
+            </div>
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <label class="form-label">Home Score</label>
+                    <input type="number" name="homeScore" class="form-control"
+                           value="@Model.HomeScore" min="0" required />
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label class="form-label">Away Score</label>
+                    <input type="number" name="awayScore" class="form-control"
+                           value="@Model.AwayScore" min="0" required />
+                </div>
+            </div>
+            <button type="submit" class="btn btn-warning w-100">Update Score</button>
+        </form>
+    </div>
+</div>

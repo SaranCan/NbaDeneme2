@@ -1,0 +1,29 @@
+﻿@model IEnumerable<NbaDeneme2.Models.VwTeamPayroll>
+
+@{
+    ViewData["Title"] = "Team Payroll";
+}
+
+<h2 class="mb-4">💰 Team Payroll Rankings</h2>
+
+<table class="table table-dark table-striped table-hover">
+    <thead>
+        <tr>
+            <th>Rank</th>
+            <th>Team</th>
+            <th>Conference</th>
+            <th>Total Payroll</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var team in Model)
+        {
+            <tr>
+                <td>@team.Rank</td>
+                <td>@team.TeamName</td>
+                <td>@team.Conference</td>
+                <td>$@String.Format("{0:N0}", team.TotalPayroll)</td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,33 @@
+﻿@model IEnumerable<NbaDeneme2.Models.VwLeagueStanding>
+
+@{
+    ViewData["Title"] = "League Standings";
+}
+
+<h2 class="mb-4">🏆 League Standings</h2>
+
+<table class="table table-dark table-striped table-hover">
+    <thead>
+        <tr>
+            <th>Rank</th>
+            <th>Team</th>
+            <th>Conference</th>
+            <th>W</th>
+            <th>L</th>
+            <th>Differential</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var team in Model)
+        {
+            <tr>
+                <td>@team.Rank</td>
+                <td>@team.TeamName</td>
+                <td>@team.Conference</td>
+                <td>@team.Wins</td>
+                <td>@team.Loses</td>
+                <td>@team.Differential</td>
+            </tr>
+        }
+    </tbody>
+</table>

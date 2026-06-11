@@ -1,0 +1,31 @@
+﻿@model IEnumerable<NbaDeneme2.Models.VwTeamRoster>
+
+@{
+    ViewData["Title"] = "Team Roster";
+}
+
+<h2 class="mb-4">🏀 @ViewBag.TeamName — Roster</h2>
+
+<a href="/Teams" class="btn btn-secondary mb-3">← Back to Standings</a>
+
+<table class="table table-dark table-striped table-hover">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Player</th>
+            <th>Position</th>
+            <th>Salary</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var player in Model)
+        {
+            <tr>
+                <td>@player.JerseyNumber</td>
+                <td>@player.PlayerName</td>
+                <td>@player.Position</td>
+                <td>$@String.Format("{0:N0}", player.Salary)</td>
+            </tr>
+        }
+    </tbody>
+</table>
