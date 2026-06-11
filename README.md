@@ -4,7 +4,7 @@ A web-based NBA analytics platform built with ASP.NET Core MVC and Entity Framew
 
 ## Tech Stack
 - ASP.NET Core MVC (.NET 10)
-- Entity Framework Core (Database First)
+- Entity Framework Core
 - Microsoft SQL Server
 - Bootstrap 5
 
